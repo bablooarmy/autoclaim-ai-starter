@@ -3,8 +3,15 @@ from app.config import settings
 from app.models.schemas import GovernanceReport, PolicyCitation, SeverityLevel
 
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
-PHONE_RE = re.compile(r"\b(?:\+?\d{1,3}[-.\s]?)?(?:\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}\b")
-PLATE_RE = re.compile(r"\b[A-Z]{2,3}[-\s]?\d{2,4}[-\s]?[A-Z]{0,3}\b")
+PHONE_RE = re.compile(
+    r"(?<!\w)(?:\+?\d{1,3}[-.\s]?)?(?:\(?\d{2,4}\)?[-.\s]?)?\d{3,5}[-.\s]?\d{4}(?!\w)"
+)
+POLICY_RE = re.compile(
+    r"(?i)\b(?:policy\s*(?:no\.?|number|id|#)?\s*[:#-]?\s*)([A-Z0-9-]{6,20})\b"
+)
+PLATE_RE = re.compile(
+    r"\b[A-Z]{2,3}[-\s]?\d{1,2}[-\s]?[A-Z]{1,3}[-\s]?\d{1,4}\b"
+)
 SSN_RE = re.compile(r"\b\d{3}-\d{2}-\d{4}\b")
 
 
@@ -12,6 +19,11 @@ def redact_pii(text: str) -> tuple[str, list[str]]:
     """Redact common PII patterns before sending claim descriptions to LLMs."""
     redacted_fields: list[str] = []
     sanitized = text
+
+    # Apply labeled policy number replacement first so digits aren't caught by other rules
+    if POLICY_RE.search(sanitized):
+        redacted_fields.append("policy_number")
+        sanitized = POLICY_RE.sub(r"\1[REDACTED_POLICY]", sanitized)
 
     for label, pattern, token in [
         ("email", EMAIL_RE, "[REDACTED_EMAIL]"),
