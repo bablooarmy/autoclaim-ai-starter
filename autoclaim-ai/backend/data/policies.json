@@ -1,0 +1,32 @@
+[
+  {
+    "doc_id": "POL-001",
+    "title": "Auto Insurance Severity Classification Rubric",
+    "section": "Section 1: Minor & Cosmetic Damage",
+    "content": "MINOR severity applies to superficial scratches, clear-coat scuffs, small door dings under 3 inches, or minor bumper scuffs without cracking, sensor damage, or panel misalignment. Estimated repair cost typically ranges from $250 to $1,200. Eligible for fast-track digital settlement under Comprehensive or Collision coverage after deductible."
+  },
+  {
+    "doc_id": "POL-002",
+    "title": "Auto Insurance Severity Classification Rubric",
+    "section": "Section 2: Moderate Panel & Component Damage",
+    "content": "MODERATE severity applies to deep dents, cracked bumpers, shattered headlights or taillights, cracked windshields, or single-panel replacement (fender, door skin, quarter panel) with no frame or suspension distortion and no airbag deployment. Estimated repair cost typically ranges from $1,200 to $4,500. Requires certified repair shop photo estimate."
+  },
+  {
+    "doc_id": "POL-003",
+    "title": "Auto Insurance Severity Classification Rubric",
+    "section": "Section 3: Severe Structural & Mechanical Damage",
+    "content": "SEVERE severity applies to multi-panel crush damage, structural frame or pillar deformation, axle/suspension misalignment, radiator or engine bay intrusion, or deployed airbags. Estimated repair cost typically ranges from $4,500 to $15,000. Mandatory licensed field adjuster inspection and tow authorization required."
+  },
+  {
+    "doc_id": "POL-004",
+    "title": "Auto Insurance Severity Classification Rubric",
+    "section": "Section 4: Total Loss Thresholds",
+    "content": "TOTAL_LOSS applies when estimated repair cost exceeds 75% of Actual Cash Value (ACV), or when catastrophic fire, flood immersion, rollover roof crush, or unibody structural buckling renders the vehicle unsafe to repair. Estimated cost exceeds $15,000. Escalate immediately to Total Loss & Salvage Claims Unit."
+  },
+  {
+    "doc_id": "POL-005",
+    "title": "Coverage Tier & Deductible Schedule",
+    "section": "Section 5: Comprehensive, Collision, and Liability Rules",
+    "content": "COMPREHENSIVE coverage ($500 standard deductible) covers weather, hail, falling objects, theft, vandalism, glass, and animal strikes. COLLISION coverage ($1,000 standard deductible) covers impact with another vehicle or stationary object. LIABILITY_ONLY coverage ($0 deductible for third-party claims) does NOT cover damage to the policyholder's own vehicle."
+  }
+]
